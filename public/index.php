@@ -1,30 +1,8 @@
 <?php
+// once we load this index page using htaccess we start our session
 session_start();
-class App
-{
-    private function splitUrl()
-    {
-
-        $URL = $_GET['url'] ?? 'home';
-        $URL = explode("/", $URL);
-        return $URL;
-    }
-
-    private function loadController()
-    {
-        $URL = $this->splitUrl();
-        $fileName = "../app/controllers/" . ucfirst($URL[0]) . ".php";
-        if (file_exists($fileName)) {
-            require $fileName;
-        } else {
-            $fileName = "../app/controllers/_404.php";
-            require $fileName;
-        }
-    }
-}
-function show($stuff)
-{
-    echo "<pre>";
-    print_r($stuff);
-    echo "</pre>";
-}
+// require our initialization file which actually loads every thing in the core folder
+require '../app/core/init.php';
+// instantiating the App class 
+$app = new App;
+$app->loadController();
