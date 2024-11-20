@@ -1,4 +1,5 @@
 #telling the website to use the htaccess file to only load the index.php file
+# syntax ==> Apache server rules
 RewriteEngine On
 #accept loading of actual files and directories
 RewriteCond %{REQUEST_FILENAME} !-f
