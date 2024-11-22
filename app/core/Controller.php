@@ -1,6 +1,6 @@
 <?php
 // A Controller class that is going to have basic functionality of loading views
-class Controller
+trait Controller
 {
     public function view($name)
     {
